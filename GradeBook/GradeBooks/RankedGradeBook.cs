@@ -12,6 +12,9 @@ namespace GradeBook.GradeBooks
         {
             Type = GradeBookType.Standard;
         }
-       
+        public override void CalculateStatistics()
+        {
+            base.CalculateStatistics();
+        }
     }
 }
