@@ -10,11 +10,24 @@ namespace GradeBook.GradeBooks
 
         public RankedGradeBook(string name) : base(name)
         {
-            Type = GradeBookType.Standard;
+            Type = GradeBookType.Ranked;
         }
-        public override void CalculateStatistics()
+        public override char GetLetterGrade(double avarageGrade)
         {
-            base.CalculateStatistics();
+            if(Students.Count <5)
+            {
+                throw new InvalidOperationException();
+            }
+            if (avarageGrade >= 80)
+                return 'A';
+            else if (avarageGrade < 80 && avarageGrade >= 60)
+                return 'B';
+            else if (avarageGrade < 60 && avarageGrade >= 40)
+                return 'C';
+            else if (avarageGrade < 40 && avarageGrade >= 20)
+                return 'D';
+            else
+                return 'F';
         }
     }
 }
